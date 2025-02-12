@@ -1,7 +1,4 @@
-# Use Python 3.13.2 official image as the base
-FROM python:3.13.2-slim
-
-# Set the working directory inside the container
+FROM python:3.13.2
 WORKDIR /app
 
 # Copy the requirements file to the container
@@ -16,5 +13,5 @@ COPY ./books.py .
 # Expose the port that the app will run on
 EXPOSE 8000
 
-# Start the FastAPI app with Uvicorn
+# Run FastAPI server
 CMD ["uvicorn", "books:app", "--host", "0.0.0.0", "--port", "8000"]
